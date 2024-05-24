@@ -1,0 +1,114 @@
+%
+% This is not the official template of UTS. 
+%
+\documentclass[a4paper,12pt,leqno,openbib]{memoir} %add 'draft' to show PDF watermark
+
+% Student-configured constants
+\input{config/thesis-details} 
+
+% PDF info
+\input{config/preamble/pdf-details} 
+
+% Packages
+\input{config/preamble/packages} 
+\input{config/preamble/optional/packages-optional} 
+
+% Structure & layout         
+\input{config/preamble/presentation} % set up structure and layout
+\input{config/hyphenation} % custom hyphenation
+\input{config/abbreviations} 
+\input{config/glossary} 
+
+% New commands
+\input{config/preamble/macros-structure} 
+\input{config/preamble/macros} 
+\input{config/preamble/macros-custom} 
+\input{config/preamble/optional/macros-math} % optional
+\input{config/preamble/optional/typesetting-theorem} % optional
+
+% Table of Contents, List of Figures, List of Tables and Index
+\makeindex
+
+% End Preamble
+
+
+%======================================
+\begin{document}
+\frontmatter
+\pagenumbering{roman}
+
+% Preliminary pages
+\input{pages/_preliminary/title}
+\input{pages/_preliminary/submission}
+\input{pages/_preliminary/abstract} \utsclearemptydoublepage
+\input{pages/_preliminary/declaration} \utsclearemptydoublepage
+\input{pages/_preliminary/dedication} \utsclearemptydoublepage
+\input{pages/_preliminary/acknowledgment} \utsclearemptydoublepage
+\input{pages/_preliminary/publications} \utsclearemptydoublepage
+
+% Summary pages
+\renewcommand{\contentsname}{Table of Contents}
+\maxtocdepth{subsection}
+\tableofcontents*
+\printglossary[type=\acronymtype, title=Abbreviations, toctitle=Abbreviations]
+\utsclearemptydoublepage
+
+\listoffigures
+\addtocontents{lof}
+{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
+\utsclearemptydoublepage
+
+\listoftables
+\addtocontents{lot}
+{\par\nobreak\textbf{{\scshape Table} \hfill Page}\par\nobreak}
+\utsclearemptydoublepage
+
+
+
+%=============== REMOVE THIS LINE!!! ===============%
+\import{pages/chapters/_Examples/}{examples} \utsclearemptydoublepage
+
+
+%===========================
+% Main content
+%===========================
+\mainmatter
+\import{pages/chapters/01/}{index} \utsclearemptydoublepage
+
+\part{State of the art}
+\import{pages/chapters/02/}{index} \utsclearemptydoublepage
+
+\part{Methods}
+\import{pages/chapters/03/}{index} \utsclearemptydoublepage
+
+\part{Design Iterations / Results}
+\import{pages/chapters/04/}{index} \utsclearemptydoublepage
+\import{pages/chapters/05/}{index} \utsclearemptydoublepage
+\import{pages/chapters/06/}{index} \utsclearemptydoublepage
+
+\part{Concluding Remarks}
+\import{pages/chapters/07/}{index} \utsclearemptydoublepage
+
+%===========================
+% Glossary
+%===========================
+\printglossary[type=main, title=Glossary, toctitle=Glossary]
+
+
+%===========================
+% Appendices
+%===========================
+\appendix
+\import{pages/appendices/a/}{index} \utsclearemptydoublepage
+\import{pages/appendices/b/}{index} \utsclearemptydoublepage
+\import{pages/appendices/c/}{index} \utsclearemptydoublepage
+
+%===========================
+% Back matter
+%===========================
+\backmatter
+\refstepcounter{chapter}
+\bibliographystyle{siam}
+\bibliography{references} \utsclearemptydoublepage
+
+\end{document}

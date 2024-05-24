@@ -1,0 +1,91 @@
+% Environment & debugging
+%\RequirePackage[l2tabu]{nag} % Detecting and warning about obsolete LATEX commands
+\usepackage{import}          % Establish input relative to a directory
+\usepackage{verbatim}        % Reimplementation of and extensions to LATEX verbatim. Useful for text-blocks and code-blocks
+% \usepackage{lineno}         % Line numbers 
+%\usepackage{alltt}           % tt font, but obey commands and line endings. LaTeX commands are not disabled in verbatim-like environment
+%\usepackage{url}             % Verbatim with URL-sensitive line breaks
+%\usepackage{lipsum}	      % Create dummy text
+%\usepackage{layouts} 	      % Display various elements of a document's layout
+
+% Date formatting
+% From https://tex.stackexchange.com/questions/162353/memoir-class-conflict-with-datetime
+%\let\ordinal\relax    % Relax ordinal warning - remove if memoir has issues. 
+%\usepackage{datetime} % This causes warning about \ordinal
+\usepackage[en-GB]{datetime2}
+
+% Structure & Layout
+\usepackage{calc,soul,fourier} % Arithmetic in LATEX commands. Required for Chapters
+\usepackage{rotfloat} % Rotate floats. E.g. tables, figures. Used for Chapter number box
+\usepackage{parskip} % Layout with zero \parindent, non-zero \parskip - Anthony
+%\usepackage{balance} % Balanced two-column mode
+%\usepackage{float}   % Improved interface for floating objects
+\usepackage{mdframed} % Frames and boxes
+\usepackage{fancybox}
+\usepackage{pdflscape}
+
+
+% Fonts & Symbols
+\usepackage{newlfont}     % Helpful package for fonts and symbols. Required by memoir.
+\usepackage{calligra}     % Handwriting style. Used for dedication
+%\usepackage{fouriernc}    % Font with math support: New Century Schoolbook
+%\usepackage{frcursive}    % French academic handwriting
+%\usepackage{epigraph}     % For typesetting epigraphs
+%\usepackage[T1]{fontenc}  % ‘font-encoding-specific’ commands. E.g. custom hyphenation
+%\usepackage{textcomp}     % Text Companion fonts. E.g. bullet, copyright, musicalnote
+
+% Colour, Images, & Graphics
+\usepackage[table]{xcolor} % Driver-independent color extensions for LATEX and pdfLATEX
+\usepackage{tikz}          % For absolute positioning of images. Used on declaration page
+%\usepackage{svg}          % For SVG images
+%\usepackage[inkscapelatex=false]{svg}
+
+%\usepackage{color}        % Colour control for LATEX documents
+%\usepackage{graphicx}     % Enhanced support for graphics
+%\usepackage{epsf} - Using graphicx - Anthony
+%\usepackage{epsfig} - Using graphicx - Anthony
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
+
+% Citation, referencing
+\usepackage[colorlinks=true,allcolors=black]{hyperref} % Hypertext. E.g. Creates hyperlinks in cross references
+%\usepackage{footnote} % Improve on LATEX's footnote handling
+%\usepackage[square,numbers,sort&compress]{natbib} % Flexible bibliography support
+%\usepackage{memhfixc} % Adjustment for using hyperref in memoir documents. Use on memoir document class after hyperref
+\usepackage{bibentry} \nobibliography* % used for inline referencing on the publications page
+\usepackage[acronyms,toc,nonumberlist]{glossaries-extra}
+
+
+
+% Tables
+%\usepackage{booktabs}                  % Publication quality tables in LATEX
+%\usepackage{longtable,rotating}	    % Allow tables to flow over page boundaries
+
+%\usepackage{xtab}
+
+
+%\usepackage{tabularx}
+%\usepackage{adjustbox} 
+%\usepackage{slashbox}                  % Both column and row headings in a tabular cell
+%\usepackage[flushleft]{threeparttable} % Tables with captions and notes all the same width
+%\usepackage{multirow}                  % Create tabular cells spanning multiple rows
+%\usepackage{array}                     % Extends the options for column formats
+%\usepackage{boldline}                  % Heavier lines in tables
+\usepackage{tablefootnote}              % Permit footnotes in tables
+
+
+
+
+% Lists
+\usepackage{enumitem}
+\usepackage{enumerate}
+%\usepackage{paralist} % Enumerate and itemize within paragraphs
+%\usepackage{mdwlist}  % Miscellaneous list-related commands
+
+
+% PDF & Encoding
+%\usepackage{ifpdf}              % For metadata
+%\usepackage{epstopdf}           % Perl script that converts an EPS file to an ‘encapsulated’ PDF file
+%\usepackage[applemac]{inputenc} % Accept different input encodings. E.g. non-english characters for mac
+%\usepackage{enumerate}	         % Enumerate with redefinable labels. Style for counter.
+%\usepackage{microtype}	         % Makes pdf look better.
+

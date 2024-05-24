@@ -1,0 +1,13 @@
+\ifpdf
+\pdfinfo{
+   /Author (\utsname)
+   /Title (\utstitle)
+   /Keywords (\utskeywords)
+   /CreationDate (\today)
+}
+\fi
+\ifdraftdoc 
+    \usepackage{draftwatermark}	%Sets watermarks up.
+    \SetWatermarkScale{0.3}
+    \SetWatermarkText{\bf Draft: \today}
+\fi
