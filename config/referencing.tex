@@ -1,0 +1,17 @@
+\usepackage[style=apa,sorting=nyt]{biblatex}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\DeclareLanguageMapping{american}{american-apa}
+% Modify the formatting to remove internal line breaks and set vertical space between items
+\AtEveryBibitem{%
+  \renewcommand{\newblock}{\space}  % Replace line breaks within an item with spaces
+}
+% Increase vertical space between bibliography items
+\setlength{\bibitemsep}{1.5em}  % Adjust this value to increase space between items
+
+%====================================================================
+% Add .bib files here. 
+%====================================================================
+\addbibresource{references/literature-review.bib}
+\addbibresource{references/main.bib}
+\addbibresource{references/publications.bib}

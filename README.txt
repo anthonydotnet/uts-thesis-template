@@ -21,10 +21,11 @@ Anthony Dang (Anthony.Dang@uts.edu.au | https://www.linkedin.com/in/anthonydotne
 
 
 == Configuration ==
+- assets/Signature.png  (required - replace with yours!)
 - config/hyphenation.tex (optional)
 - config/abbreviations.tex (recommended)
 - config/glossary.tex (recommended)
-- assets/Signature.png  (required - replace with yours!)
+- config/referencing.tex (recommended)
 - config/thesis-details.tex (required)
 - config/preamble/macros-custom.tex (optional - put your custom macros here!)
 

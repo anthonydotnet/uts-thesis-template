@@ -18,6 +18,7 @@
 \input{config/hyphenation} % custom hyphenation
 \input{config/abbreviations} 
 \input{config/glossary} 
+\input{config/referencing} 
 
 % New commands
 \input{config/preamble/macros-structure} 
@@ -108,7 +109,6 @@
 %===========================
 \backmatter
 \refstepcounter{chapter}
-\bibliographystyle{siam}
-\bibliography{references/references, references/literature-review} \utsclearemptydoublepage
-
+\raggedright
+\printbibliography \utsclearemptydoublepage
 \end{document}
