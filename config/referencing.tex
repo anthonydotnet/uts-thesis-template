@@ -5,6 +5,7 @@
 % Modify the formatting to remove internal line breaks and set vertical space between items
 \AtEveryBibitem{%
   \renewcommand{\newblock}{\space}  % Replace line breaks within an item with spaces
+  \clearfield{note} % Clear the note field
 }
 % Increase vertical space between bibliography items
 \setlength{\bibitemsep}{1em}  % Adjust this value to increase space between items
