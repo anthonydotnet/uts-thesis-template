@@ -15,6 +15,7 @@
 
 % Structure & layout         
 \input{config/preamble/presentation} % set up structure and layout
+\input{config/preamble/presentation-custom} % set up structure and layout
 \input{config/hyphenation} % custom hyphenation
 \input{config/abbreviations} 
 \input{config/glossary} 
@@ -32,7 +33,6 @@
 
 % End Preamble
 
-
 %======================================
 \begin{document}
 \frontmatter
@@ -40,7 +40,6 @@
 
 % Preliminary pages
 \input{pages/_preliminary/title} 
-\input{pages/_preliminary/submission} 
 \input{pages/_preliminary/declaration} \utsclearemptydoublepage 
 \input{pages/_preliminary/dedication} \utsclearemptydoublepage
 \input{pages/_preliminary/acknowledgments} \utsclearemptydoublepage
@@ -105,7 +104,7 @@
 %===========================
 % Back matter
 %===========================
-\backmatter
+%\backmatter
 
 % Glossary
 \clearpage
@@ -118,7 +117,7 @@
 \import{pages/appendices/c/}{index} \utsclearemptydoublepage
 
 % Bibliography
-\refstepcounter{chapter}
+%\refstepcounter{chapter}
 \raggedright
 \printbibliography \utsclearemptydoublepage
 \end{document}

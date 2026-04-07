@@ -32,11 +32,16 @@
 
 
 
+
 %====================================
 % Font & Spacing
 %====================================
-\OnehalfSpacing 
+\sloppy % This will make LaTeX adjust spacing to avoid overfull lines
+
+%\setSingleSpace{1.6}
+\SingleSpacing
 \frenchspacing
+
 
 % epigraph
 \epigraphfontsize{\small\itshape}
@@ -90,6 +95,8 @@
 \chapterstyle{daleifmodif}
 
 
+
+
 %====================================
 % Sections
 %====================================
@@ -105,30 +112,57 @@
 \newsubfloat{figure}
 \newsubfloat{table}
 
+\captiontitlefont{\itshape}
+\captionnamefont{\bfseries}
 
-
-
+\newcommand{\utsTableCaption}[1]{%
+  \captionstyle[\raggedright]{\raggedright}%
+  \captiontitlefont{\itshape}%
+  \captionnamefont{\bfseries}%
+  \caption{#1}%
+}
 
 %====================================
 % Flowcharts
 %====================================
 % Define a custom color using a hex value
 %\definecolor{customGreen}{HTML}{006400}
+%\usetikzlibrary{arrows.meta,decorations.markings}  % for arrow heads
+\usetikzlibrary{arrows.meta,decorations.markings, fit, positioning}
 
 \tikzstyle{start} = [ellipse,  minimum width=2.5cm, minimum height=1.3cm, line width=1pt, text centered, draw=green!40!black!40, fill=green!40!black!30, font=\tiny]
 
 \tikzstyle{stop} = [ellipse,  minimum width=2.5cm, minimum height=1.3cm, line width=1pt, text centered, draw=red!40, fill=red!25, font=\tiny]
 
-\tikzstyle{process} = [rectangle, minimum width=3.25cm, minimum height=1.3cm, line width=1pt, text centered, text width=3.25cm, draw=blue!30, fill=blue!15, align=center, font=\tiny]
+\tikzstyle{process} = [rectangle, minimum width=3.25cm, minimum height=1.3cm, line width=1pt, text centered, text width=3.25cm, draw=blue!30, fill=blue!15, align=center,
+    font=\linespread{0.9}\tiny]
 
 % \tikzstyle{plainText} = [rectangle, minimum width=3cm, minimum height=1.3cm, line width=1pt, text centered, font=\tiny]
 
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2.25cm, minimum height=1.3cm, text centered, text width=1.3cm, draw=orange!50, fill=orange!30, font=\tiny]
+\tikzstyle{io} = [
+  trapezium,
+  trapezium left angle=70,
+  trapezium right angle=110,
+  minimum width=2.25cm,
+  minimum height=1.3cm,
+  text width=1.9cm,
+  align=center,
+  inner xsep=0pt,
+  inner ysep=2pt,
+  draw=orange!50,
+  fill=orange!30,
+  font=\linespread{0.9}\tiny
+]
 
 
-\tikzstyle{decision} = [diamond, aspect=1.75, minimum width=3cm, minimum height=0.5cm, line width=1pt, text centered, text width=2.0cm, draw=yellow!60, fill=yellow!40, font=\tiny]
+\tikzstyle{decision} = [diamond, aspect=1.75, minimum width=3cm, minimum height=0.5cm, line width=1pt, text centered, text width=3.0cm, draw=yellow!60, fill=yellow!40, font=\linespread{0.9}\tiny]
 
 \tikzstyle{arrow} = [->,>=stealth, font=\tiny, line width=1pt]
 
 
-    
+
+
+
+
+
+

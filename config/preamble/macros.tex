@@ -1,3 +1,9 @@
+%=====================
+% Term - inline
+%=====================
+\newcommand{\utsterm}[1]{\ignorespaces\import{partials/terms/}{#1}\unskip}
+
+
 %=====================================================================================
 % Define natbib-style citation commands - omitted uts prefix for ease of use
 %=====================================================================================
@@ -42,11 +48,15 @@
 %=====================
 % Definition - As a block of text
 %=====================
-\newcommand{\utsdefinition}[1]{
-  \begin{quote}
-    \input{partials/definitions/#1}   
-  \end{quote}
+\newcommand{\utsdefinition}[1]{%
+    \input{partials/definitions/#1}%
 }
+
+\newcommand{\utsDefinitionInline}[1]{%
+    \input{partials/definitions/#1}%
+    \hspace*{-\parindent/2 + \parindent/10} % this is a hack to remove trailing white space
+}
+
 
 
 
@@ -64,11 +74,15 @@
 % Emphasise as a box
 %=====================
 \newmdenv[linecolor=gray,frametitle=,roundcorner=8pt]{utsinfobox}
-\newcommand{\utsemphbox}[1]{
+\newcommand{\utsemphbox}[1]{%
+    \par\addvspace{0.25\baselineskip}%
     \begin{utsinfobox}[backgroundcolor=gray!10]
-        \emph{#1}
+        \begin{minipage}{\linewidth}
+            \emph{#1}
+        \end{minipage}
     \end{utsinfobox}
 }
+
 
 
 %=====================
@@ -80,10 +94,12 @@
 %    linewidth=1pt,
     frametitlerule=true,    
     roundcorner=10pt,
-    backgroundcolor=gray!10]
+    backgroundcolor=gray!10, 
+    nobreak=true]
     {utsshadowbox}    
 \newcommand{\utsemphboxtitled}[2]{    
-    \begin{utsshadowbox}[frametitle={#1}]
+    \par\addvspace{0.25\baselineskip}%
+    \begin{utsshadowbox}[frametitle={#1}]        
         \emph{#2}
     \end{utsshadowbox}
 }
@@ -93,18 +109,22 @@
 %===================== 
 % Emphasis as horizontal lines above and below text
 %=====================
-\newcommand{\utsemphlines}[1]{
+\newcommand{\utsemphlines}[2][0.8]{%
+    \par\addvspace{0.75\baselineskip}%
     \begin{center}
     \begin{itshape}
-        \begin{tabular}{>{\centering\arraybackslash}p{0.8\textwidth}}  
+        \begin{tabular}{>{\centering\arraybackslash}p{#1\textwidth}}  
             \toprule[1.25pt]\midrule[0.25pt]
-            \rule{0pt}{18pt}
-                #1 \\[10pt]
+            \rule{0pt}{8pt}
+                #2 \\[10pt]
             \midrule[0.25pt]\bottomrule[1.25pt]
         \end{tabular}    
     \end{itshape}
     \end{center}
+    \vspace{1em}
+ %   \vspace{0.25\baselineskip} % Adds one line of vertical space
 }
+
 
 
 
@@ -134,5 +154,6 @@
 \newcommand{\utstodomore}{\utshl[yellow]{TODO: REQUIRES MORE ELABORATION} }
 
 \newcommand{\utstodoquestion}[1]{\utshl[cyan!30]{QUESTION: \MakeUppercase{#1} }}
+
 
 
