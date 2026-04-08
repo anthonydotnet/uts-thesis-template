@@ -1,3 +1,23 @@
+%========================================
+% Table Caption - for anchoring left
+%========================================
+
+\newcommand{\utsTableCaption}[1]{%
+  \captionstyle[\raggedright]{\raggedright}%
+  \captiontitlefont{\itshape}%
+  \captionnamefont{\bfseries}%
+  \caption{#1}%
+}
+
+
+\newcommand{\utsLongTableCaptionSetup}{%
+  \setlength{\LTcapwidth}{\textwidth}%
+  \captionstyle[\raggedright]{\raggedright}%
+  \captiontitlefont{\itshape}%
+}
+
+
+
 %=====================
 % Term - inline
 %=====================

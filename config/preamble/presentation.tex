@@ -43,6 +43,7 @@
 \frenchspacing
 
 
+
 % epigraph
 \epigraphfontsize{\small\itshape}
 \setlength\epigraphwidth{8cm}
@@ -115,12 +116,23 @@
 \captiontitlefont{\itshape}
 \captionnamefont{\bfseries}
 
-\newcommand{\utsTableCaption}[1]{%
-  \captionstyle[\raggedright]{\raggedright}%
-  \captiontitlefont{\itshape}%
-  \captionnamefont{\bfseries}%
-  \caption{#1}%
+
+% set table and figure text spacing
+\AtBeginEnvironment{table}{\setSingleSpace{1}\selectfont}
+\AtBeginEnvironment{figure}{\setSingleSpace{1}\selectfont}
+
+\AtBeginEnvironment{longtable}{%
+  \begingroup
+  \renewcommand{\baselinestretch}{1}\selectfont
 }
+\AfterEndEnvironment{longtable}{\endgroup}
+
+% table cell padding
+\renewcommand{\arraystretch}{1.25}
+
+
+
+
 
 %====================================
 % Flowcharts

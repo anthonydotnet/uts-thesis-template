@@ -21,6 +21,9 @@ Referece: Appendix~\ref{appendix-a:title}
 \import{./partials/}{macro-help}
 
 
+
+
+%====
 \section{Example Table}
 Note: Instead of \textbackslash{caption}, use \textbackslash{utsTableCaption} - this allows the caption to be left aligned\\
 \\
@@ -28,6 +31,29 @@ I recommend following this pattern. Put your table in a "partial" file, then ref
 \import{./partials/}{table-example}
 
 
+
+
+%====
+\section{Example Table with paragraph text}
+Note: Instead of \textbackslash{caption}, use \textbackslash{utsTableCaption} - this allows the caption to be left aligned\\
+\\
+I recommend following this pattern. Put your table in a "partial" file, then reference it like this:
+\import{./partials/}{table-paragraph-text-example.tex}
+
+
+
+
+%====
+\section{Example Long Table spilling over to another page}
+Note: use \textbackslash{caption} as normal, but use the \textbackslash{utsLongTableCaptionSetup} macro before the longtable - this allows the caption to be left aligned\\
+\\
+I recommend following this pattern. Put your table in a "partial" file, then reference it like this:
+\import{./partials/}{table-long-example.tex}
+
+
+
+
+%====
 \section{Example Figure}
 Special note: Avoid using PNG, JPG, etc. It is better to use PDF to preserve resolution.
 
