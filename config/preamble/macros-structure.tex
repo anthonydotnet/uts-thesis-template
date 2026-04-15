@@ -12,11 +12,12 @@
 %\setcounter{tocdepth}{4}
 
 
+
 %=====================
 % Double page break
 %=====================
 \newcommand{\utsclearemptydoublepage}{\newpage{\thispagestyle{empty}\cleardoublepage}}
-%\newcommand{\utsclearemptydoublepage}{\clearpage}
+
 
 
 %=====================
@@ -27,4 +28,46 @@
     \lettrine[lines=3,lhang=0.33,nindent=0em]{
         \color{gray}
             {\textsc{#1}}}{}}
+
+
+
+
+
+%=====================
+% Table Caption - for anchoring left
+%=====================
+
+\newcommand{\utsTableCaption}[1]{%
+  \captionstyle[\raggedright]{\raggedright}%
+  \captiontitlefont{\itshape}%
+  \captionnamefont{\bfseries}%
+  \caption{#1}%
+}
+
+\makeatletter
+\newcommand{\MyCaptionLeftAlign}{%
+  \leftskip=0pt
+  \rightskip=0pt plus 2em
+  \parfillskip=0pt plus 1fil
+  \parindent=0pt
+}
+\makeatother
+
+\newcommand{\utsLongTableCaptionSetup}{%
+  \setlength{\LTcapwidth}{\linewidth}%
+  \captionstyle[\MyCaptionLeftAlign]{\MyCaptionLeftAlign}%
+  \captionnamefont{\normalfont\normalsize\bfseries}%
+  \captiontitlefont{\normalfont\normalsize\itshape}%
+}
+
+
+
+
+% Sets up the hypertarget
+% #1 = key for the item
+% #2 = item text
+\newcommand{\utssaveitem}[2]{%
+  \expandafter\gdef\csname itemtext:#1\endcsname{#2}% Store the text in a macro named \itemtext:#1
+  \hypertarget{#1}{#2}% Place a hypertarget at the item text
+}
 

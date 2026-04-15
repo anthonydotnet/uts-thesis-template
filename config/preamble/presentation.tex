@@ -43,6 +43,28 @@
 \frenchspacing
 
 
+% setting heading line spacing
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus .2ex}%
+  {\normalfont\Large\bfseries\renewcommand{\baselinestretch}{1}\selectfont}}
+
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex \@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\large\bfseries\renewcommand{\baselinestretch}{1}\selectfont}}
+
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+  {-3.25ex \@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries\renewcommand{\baselinestretch}{1}\selectfont}}
+
+\makeatother
+
+
+
+
 
 % epigraph
 \epigraphfontsize{\small\itshape}
@@ -82,14 +104,25 @@
 		\makebox[1cm][r]{\usebox\feline@chapter}%
 	}}
 
+
 \makechapterstyle{daleifmodif}{
-	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so} 
-	\renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape} 
-	\renewcommand\chapternamenum{} \renewcommand\printchaptername{} 
+	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so\renewcommand{\baselinestretch}{1}\selectfont} 
+	\renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape\renewcommand{\baselinestretch}{1}\selectfont} 
+	\renewcommand\chapternamenum{} 
+	\renewcommand\printchaptername{} 
 	\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par} % box height
 	\renewcommand\afterchapternum{\par\vskip\midchapskip} 
 	\renewcommand\printchaptertitle[1]{\color{gray}\chaptitlefont\raggedleft ##1\par}
-} 
+}
+
+% \makechapterstyle{daleifmodif}{
+% 	\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so} 
+% 	\renewcommand\chaptitlefont{\normalfont\Large\bfseries\scshape} 
+% 	\renewcommand\chapternamenum{} \renewcommand\printchaptername{} 
+% 	\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par} % box height
+% 	\renewcommand\afterchapternum{\par\vskip\midchapskip} 
+% 	\renewcommand\printchaptertitle[1]{\color{gray}\chaptitlefont\raggedleft ##1\par}
+% } 
 \makeatother 
 % end modifying package internals
 
@@ -113,14 +146,21 @@
 \newsubfloat{figure}
 \newsubfloat{table}
 
-\captiontitlefont{\itshape}
+
+% caption: bold type, italic label
+\captiontitlefont{\itshape} 
 \captionnamefont{\bfseries}
 
-
-% set table and figure text spacing
-\AtBeginEnvironment{table}{\setSingleSpace{1}\selectfont}
+% set table and figure white space above and line spacing
+\AtBeginEnvironment{figure}{\vspace{10pt}}
 \AtBeginEnvironment{figure}{\setSingleSpace{1}\selectfont}
 
+\AtBeginEnvironment{table}{\vspace{18pt}}
+\AtBeginEnvironment{table}{\setSingleSpace{1}\selectfont}
+\AtEndEnvironment{table}{\vspace{10pt}}
+
+
+% 
 \AtBeginEnvironment{longtable}{%
   \begingroup
   \renewcommand{\baselinestretch}{1}\selectfont
@@ -128,7 +168,7 @@
 \AfterEndEnvironment{longtable}{\endgroup}
 
 % table cell padding
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.50}
 
 
 
@@ -142,39 +182,71 @@
 %\usetikzlibrary{arrows.meta,decorations.markings}  % for arrow heads
 \usetikzlibrary{arrows.meta,decorations.markings, fit, positioning}
 
-\tikzstyle{start} = [ellipse,  minimum width=2.5cm, minimum height=1.3cm, line width=1pt, text centered, draw=green!40!black!40, fill=green!40!black!30, font=\tiny]
+\tikzstyle{start} = [ellipse,  
+    text width=1.75cm,
+    minimum height=1.25cm, 
+    line width=1pt, 
+    text centered, 
+    draw=green!40!black!40, 
+    fill=green!40!black!30, 
+    font=\scriptsize
+]
 
-\tikzstyle{stop} = [ellipse,  minimum width=2.5cm, minimum height=1.3cm, line width=1pt, text centered, draw=red!40, fill=red!25, font=\tiny]
-
-\tikzstyle{process} = [rectangle, minimum width=3.25cm, minimum height=1.3cm, line width=1pt, text centered, text width=3.25cm, draw=blue!30, fill=blue!15, align=center,
-    font=\linespread{0.9}\tiny]
-
-% \tikzstyle{plainText} = [rectangle, minimum width=3cm, minimum height=1.3cm, line width=1pt, text centered, font=\tiny]
-
-\tikzstyle{io} = [
-  trapezium,
-  trapezium left angle=70,
-  trapezium right angle=110,
-  minimum width=2.25cm,
-  minimum height=1.3cm,
-  text width=1.9cm,
-  align=center,
-  inner xsep=0pt,
-  inner ysep=2pt,
-  draw=orange!50,
-  fill=orange!30,
-  font=\linespread{0.9}\tiny
+\tikzstyle{stop} = [
+    ellipse,  
+    text width=1.75cm,
+    minimum height=1.25cm, 
+    line width=1pt, 
+    text centered, 
+    draw=red!40, 
+    fill=red!25, 
+    font=\scriptsize
 ]
 
 
-\tikzstyle{decision} = [diamond, aspect=1.75, minimum width=3cm, minimum height=0.5cm, line width=1pt, text centered, text width=3.0cm, draw=yellow!60, fill=yellow!40, font=\linespread{0.9}\tiny]
+\tikzstyle{process} = [
+    rectangle, 
+    minimum height=1.5cm, 
+    line width=1pt, 
+    text centered, 
+    text width=3.75cm, 
+    draw=blue!30, 
+    fill=blue!15, 
+    align=center,
+    font=\linespread{0.9}\scriptsize
+]
 
-\tikzstyle{arrow} = [->,>=stealth, font=\tiny, line width=1pt]
+
+\tikzstyle{decision} = [
+    diamond, 
+    aspect=1.75, 
+    minimum height=2.75cm, 
+    line width=1pt, 
+    text centered, 
+    text width=2.75cm, 
+    draw=yellow!60, 
+    fill=yellow!40, 
+    font=\linespread{0.9}\scriptsize
+]
 
 
+\tikzstyle{io} = [
+    draw=none,
+    inner sep=0pt,
+    outer sep=0pt,
+    minimum width=4.00cm,
+    minimum height=1.5cm,
+    font=\linespread{0.9}\scriptsize\selectfont,
+    align=center,
+    path picture={
+        \filldraw[draw=orange!50, fill=orange!30]
+        ([xshift=0.50cm]path picture bounding box.north west) --
+        ([xshift=0.00cm]path picture bounding box.north east) --
+        ([xshift=-0.50cm]path picture bounding box.south east) --
+        ([xshift=0.00cm]path picture bounding box.south west) -- cycle;
+    }
+]
 
 
-
-
-
+\tikzstyle{arrow} = [->,>=stealth, font=\scriptsize, line width=1pt]
 
